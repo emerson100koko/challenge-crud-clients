@@ -13,6 +13,7 @@ public class Client {
     private String name;
     private String cpf;
     private Double income;
+
     private LocalDate bithDate;
     private Integer children;
 
