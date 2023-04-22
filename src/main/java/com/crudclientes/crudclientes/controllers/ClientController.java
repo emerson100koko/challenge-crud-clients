@@ -3,6 +3,8 @@ package com.crudclientes.crudclientes.controllers;
 import com.crudclientes.crudclientes.dto.ClientDTO;
 import com.crudclientes.crudclientes.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,4 +20,10 @@ public class ClientController {
     public ClientDTO findyById(@PathVariable Long id){
         return service.findById(id);
     }
+
+    @GetMapping
+    public Page<ClientDTO> findyAll(Pageable pageable){
+        return service.findAll(pageable);
+    }
+
 }
