@@ -14,9 +14,6 @@ public class ClientDTO {
     private LocalDate bithDate;
     private Integer children;
 
-    public ClientDTO(){
-    }
-
     public ClientDTO(Long id, String name, String cpf, Double income, LocalDate bithDate, Integer children) {
         this.id = id;
         this.name = name;

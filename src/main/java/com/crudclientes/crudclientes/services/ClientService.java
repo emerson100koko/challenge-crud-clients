@@ -3,6 +3,7 @@ package com.crudclientes.crudclientes.services;
 import com.crudclientes.crudclientes.dto.ClientDTO;
 import com.crudclientes.crudclientes.entiti.Client;
 import com.crudclientes.crudclientes.repositories.ClientRepository;
+import com.crudclientes.crudclientes.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +16,8 @@ public class ClientService {
     private ClientRepository repository;
     @Transactional(readOnly = true)
     public ClientDTO findById(Long id){
-        Client client = repository.findById(id).get();
+        Client client = repository.findById(id).orElseThrow(
+                ()->new ResourceNotFoundException("Recurso não encontrado"));
         return new ClientDTO(client);
     }
 

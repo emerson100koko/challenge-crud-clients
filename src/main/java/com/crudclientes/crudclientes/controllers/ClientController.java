@@ -19,9 +19,9 @@ public class ClientController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<ClientDTO> findyById(@PathVariable Long id){
-        ClientDTO dto = service.findById(id);
-        return ResponseEntity.ok(dto);
-    }
+            ClientDTO dto = service.findById(id);
+            return ResponseEntity.ok(dto);
+        }
 
     @GetMapping
     public ResponseEntity<Page<ClientDTO>> findyAll(Pageable pageable){
@@ -45,7 +45,7 @@ public class ClientController {
     }
 
     @DeleteMapping (value = "/{id}")
-    public ResponseEntity<Void> update(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id){
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
