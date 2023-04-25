@@ -1,16 +1,20 @@
 package com.crudclientes.crudclientes.dto;
 
 import com.crudclientes.crudclientes.entiti.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
     private String cpf;
     private Double income;
 
+    @PastOrPresent
     private LocalDate bithDate;
     private Integer children;
 
